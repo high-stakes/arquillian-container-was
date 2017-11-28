@@ -40,6 +40,7 @@ public class WLPManagedContainerConfiguration implements
    private String apiTypeVisibility = null;
    private String deployType = "dropins";
    private String javaVmArguments = "";
+   private boolean containerAlreadyRunning = true;
    private boolean addLocalConnector;
    private String securityConfiguration;
    private boolean failSafeUndeployment = false;
@@ -199,6 +200,14 @@ public class WLPManagedContainerConfiguration implements
          return true;
       else
          return false;
+   }
+
+   public boolean isContainerAlreadyRunning() {
+      return containerAlreadyRunning;
+   }
+
+   public void setContainerAlreadyRunning(boolean containerAlreadyRunning) {
+      this.containerAlreadyRunning = containerAlreadyRunning;
    }
 
    public String getJavaVmArguments() {

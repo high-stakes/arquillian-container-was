@@ -40,7 +40,7 @@ public class WLPManagedContainerConfiguration implements
    private String apiTypeVisibility = null;
    private String deployType = "dropins";
    private String javaVmArguments = "";
-   private boolean containerAlreadyRunning = true;
+   private boolean containerAlreadyRunning = false;
    private boolean addLocalConnector;
    private String securityConfiguration;
    private boolean failSafeUndeployment = false;

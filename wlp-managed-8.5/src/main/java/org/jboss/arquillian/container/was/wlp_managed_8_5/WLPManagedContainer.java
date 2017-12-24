@@ -106,6 +106,9 @@ public class WLPManagedContainer implements DeployableContainer<WLPManagedContai
           Process wlpProcess = null;
           try {
               wlpProcess = pb.start();
+              InputStream is = wlpProcess.getInputStream();
+              while (is.read() != -1) { }
+
               wlpProcess.waitFor();
           } catch (IOException e) {
               throw new RuntimeException(e);
@@ -503,9 +506,13 @@ public class WLPManagedContainer implements DeployableContainer<WLPManagedContai
                    "./bin/server stop " + containerConfiguration.getServerName() );
            pb.directory(new File(containerConfiguration.getWlpHome()));
            pb.redirectErrorStream(true);
+
            Process wlpProcess = null;
            try {
                wlpProcess = pb.start();
+               InputStream is = wlpProcess.getInputStream();
+               while (is.read() != -1) { }
+
                wlpProcess.waitFor();
            } catch (IOException e) {
                throw new RuntimeException(e);
